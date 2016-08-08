@@ -1,0 +1,43 @@
+{
+    "discord": {
+        "username": "test",
+        "oauth_token": "test",
+        "channels": ["test", "test2"],
+        "global_admins": ["test", "test2"],
+        "required_roles": ["test", "test2"]
+    },
+    "games": [
+        {
+            "name": "game1",
+            "type": "gay",
+            "app_id": "lol",
+            "install_dir": "test",
+            "commands": {
+                "start": "start",
+                "stop": "st",
+                "update": "u",
+                "connect": "c",
+                "players": "po",
+                "version": "v",
+                "delay": "d"
+            },
+            "admins": ["yodle", "everyone"]
+        },
+        {
+            "name": "game2",
+            "type": "gay2",
+            "app_id": "lol2",
+            "install_dir": "test2",
+            "commands": {
+                "start": "start2",
+                "stop": "st2",
+                "update": "u2",
+                "connect": "c2",
+                "players": "po2",
+                "version": "v2",
+                "delay": "d2"
+            },
+            "admins": ["yodle2", "everyone2"]
+        }
+    ]
+}
