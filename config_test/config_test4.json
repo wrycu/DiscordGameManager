@@ -1,0 +1,18 @@
+{
+    "discord": {
+        "username": "test",
+        "oauth_token": "test",
+        "channels": ["test", "test2"],
+        "global_admins": ["test", "test2"],
+        "required_roles": ["test", "test2"]
+    },
+    "games": [
+        {
+            "name": "game1",
+            "type": "gay",
+            "app_id": "lol",
+            "install_dir": "test",
+            "admins": ["yodle", "everyone"]
+        }
+    ]
+}
