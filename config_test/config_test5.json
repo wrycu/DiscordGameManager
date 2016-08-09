@@ -4,7 +4,7 @@
         "oauth_token": "test",
         "channels": ["test", "test2"],
         "global_admins": ["test", "test2"],
-        "required_roles": ["test", "test2"]
+        "required_roles": [123, 234]
     },
     "games": [
         {
@@ -21,7 +21,7 @@
                 "version": "v",
                 "delay": "d"
             },
-            "admins": ["yodle", "everyone"]
+            "admins": [234, 345]
         },
         {
             "name": 2,
@@ -37,7 +37,7 @@
                 "version": "v2",
                 "delay": "d2"
             },
-            "admins": ["yodle2", "everyone2"]
+            "admins": [12, 55]
         }
     ]
 }
