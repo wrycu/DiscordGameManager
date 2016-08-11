@@ -12,7 +12,16 @@
             "type": "gay",
             "app_id": "lol",
             "install_dir": "test",
-            "admins": ["yodle", "everyone"]
+            "commands": {
+                "start": "start",
+                "stop": "st",
+                "update": "u",
+                "connect": "c",
+                "players": "po",
+                "version": "v",
+                "delay": "d"
+            },
+            "admins": [123, 234]
         }
     ]
 }
