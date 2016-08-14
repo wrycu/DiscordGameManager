@@ -1,4 +1,4 @@
-configSchema = {
+config_schema = {
     "type": "object",
     "required": ["discord"],
     "properties": {
