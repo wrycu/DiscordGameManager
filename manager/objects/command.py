@@ -4,6 +4,9 @@ import time
 
 
 class Command:
+    """
+    Abstract base class for a command.
+    """
     __metaclass__ = abc.ABCMeta
 
     def __init__(self):

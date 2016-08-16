@@ -3,7 +3,24 @@ import re
 
 
 class TelnetCommand(Command):
+    """
+    An object encapsulating the socket communication when interacting with a game server that uses Telnet
+    for remote management.
+    """
     def __init__(self, port, command, password=None, regex=None):
+        """
+        Initializes the object
+        :param port:
+            The port to open with telnet
+        :param command:
+            The command to run once connected
+        :param password:
+            Optional password that server management uses
+        :param regex:
+            Optional regex to parse result of command
+        :return:
+            Result of the command being executed
+        """
         self.port = port
         self.password = password
         self.command = command
@@ -26,6 +43,7 @@ class TelnetCommand(Command):
         self.write_socket(self.command)
 
         result = self.read_socket()
+        self.soc.close()
         if not self.regex:
             return result
 
