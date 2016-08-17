@@ -22,6 +22,7 @@ class TelnetCommand(Command):
         :return:
             Result of the command being executed
         """
+        super(TelnetCommand, self).__init__()
         self.port = port
         self.password = password
         self.command = command
