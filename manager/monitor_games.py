@@ -12,7 +12,7 @@ def monitor_games(loop):
     #  2. Configure an actual try / except block which logs failures (possibly even sending them to Discord)
     try:
         print("hello")
-        loop.call_later(1, monitor_games, loop)
+        loop.call_later(60, monitor_games, loop)
     except Exception:
         loop.stop()
 
@@ -25,5 +25,5 @@ def create_game_loop():
         An event loop which can be used to run other functions on the same loop
     """
     loop = asyncio.get_event_loop()
-    loop.call_later(30, monitor_games, loop)
+    loop.call_later(60, monitor_games, loop)
     return loop

@@ -65,7 +65,8 @@ class DiscordBot:
             commands = [
                 '!help',
                 '!start',
-                '!stop'
+                '!stop',
+                '!status',
             ]
 
             full_local_user = str(client.user.name) + '#' + str(client.user.discriminator)
