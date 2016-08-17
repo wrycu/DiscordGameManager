@@ -12,7 +12,7 @@ class Game:
         return self.info["name"]
 
     def get_start_command(self):
-        return ConsoleCommand(self.info["commands"]["start"])
+        return ConsoleCommand(self.info["commands"]["start"]["command"])
 
     def get_stop_command(self):
         # should be more or less the same as players
