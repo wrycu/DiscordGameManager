@@ -5,6 +5,7 @@ import discord
 from config_schema import config_schema
 from manager.monitor_discord import DiscordBot
 from manager.monitor_games import create_game_loop
+from manager.objects.game import Game
 
 
 class Config:
@@ -20,14 +21,12 @@ class Config:
         self.admins = {
             'global': data['discord']['global_admins'],
         }
-        self.games = []
+        self.games = {}
         for attrs in data['games']:
             self.admins[attrs['name']] = attrs['admins']
-            # TODO: Create a game object here
             if attrs['name'] not in self.games:
-                self.games.append(attrs)
+                self.games[attrs['name']] = Game(attrs)
         self.required_roles = data['discord']['required_roles']
-        self.games = data['games']
         self.game_loop = create_game_loop()
         self.discord_client = discord.Client()
         bot = DiscordBot(self.logger, self.channels, self.admins, self.required_roles, self.games)

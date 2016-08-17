@@ -111,7 +111,7 @@ class DiscordBot:
                 await client.send_message(channel, 'Available commands: !start, !stop, !status.')
             elif command == '!start':
                 if game in self.games:
-                    # TODO: Actually start the game
+                    self.games[game].get_start_command().execute()
                     await asyncio.sleep(5)
                     await client.send_message(channel, 'Server for ' + game + ' started!')
                 else:
@@ -127,9 +127,9 @@ class DiscordBot:
                     await client.send_message(channel, game + ' not supported!')
             elif command == '!status':
                 if game in self.games:
-                    # TODO: Actually get the status of the game
+                    num_players = self.games[game].get_player_command().execute()
                     await asyncio.sleep(5)
-                    await client.send_message(channel, game + ' has two players!')
+                    await client.send_message(channel, game + ' has ' + num_players + ' players!')
                 else:
                     await client.send_message(channel, game + ' not supported!')
             else:
