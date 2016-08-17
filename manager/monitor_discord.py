@@ -128,7 +128,7 @@ class DiscordBot:
                     await client.send_message(channel, game + ' not supported!')
             elif command == '!status':
                 if game in self.games:
-                    num_players = self.games[game].get_player_command().execute()
+                    num_players = self.games[game].get_players_command().execute()
                     await asyncio.sleep(5)
                     await client.send_message(channel, game + ' has ' + num_players + ' players!')
                 else:
