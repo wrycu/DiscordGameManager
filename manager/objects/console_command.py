@@ -9,4 +9,4 @@ class ConsoleCommand(Command):
 
     def execute(self):
         proc = subprocess.Popen(self.command, preexec_fn=os.setsid)
-        print("Pid = ", proc.pid)
+        return proc.pid

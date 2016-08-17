@@ -17,7 +17,8 @@ class TelnetCommand(Command):
         :param password:
             Optional password that server management uses
         :param regex:
-            Optional regex to parse result of command
+            Optional regex to parse result of command. If there is no match (unexpected output) and Exception
+            will be raised
         :return:
             Result of the command being executed
         """
