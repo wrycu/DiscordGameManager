@@ -4,7 +4,7 @@ import logging
 import discord
 from config_schema import config_schema
 from manager.monitor_discord import DiscordBot
-from manager.monitor_games import create_game_loop
+from manager.monitor_games import MonitorGames
 from manager.objects.game import Game
 
 
@@ -27,11 +27,11 @@ class Config:
             if attrs['name'] not in self.games:
                 self.games[attrs['name']] = Game(attrs)
         self.required_roles = data['discord']['required_roles']
-        self.game_loop = create_game_loop()
+        monitor = MonitorGames(self.logger, self.games)
         self.discord_client = discord.Client()
         bot = DiscordBot(self.logger, self.channels, self.admins, self.required_roles, self.games)
         bot.register_events(self.discord_client)
-        self.discord_client.run(self.discord_token, loop=self.game_loop)
+        self.discord_client.run(self.discord_token, loop=monitor.loop)
 
     def _configure_logger(self):
         """
