@@ -11,6 +11,9 @@ class Game:
     def name(self):
         return self.info["name"]
 
+    def kill_empty(self):
+        return self.info["kill_empty"]
+
     def get_start_command(self):
         return ConsoleCommand(self.info["commands"]["start"]["command"])
 
