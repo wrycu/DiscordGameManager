@@ -28,10 +28,10 @@ class Config:
                 self.games[attrs['name']] = Game(attrs)
         self.required_roles = data['discord']['required_roles']
         monitor = MonitorGames(self.logger, self.games)
-        self.discord_client = discord.Client()
+        self.discord_client = discord.Client(loop=monitor.loop)
         bot = DiscordBot(self.logger, self.channels, self.admins, self.required_roles, self.games)
         bot.register_events(self.discord_client)
-        self.discord_client.run(self.discord_token, loop=monitor.loop)
+        self.discord_client.run(self.discord_token)
 
     def _configure_logger(self):
         """
