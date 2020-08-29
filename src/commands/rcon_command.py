@@ -1,4 +1,4 @@
-from manager.objects.command import Command
+from manager.game.command import Command
 import re
 
 

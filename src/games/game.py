@@ -1,7 +1,6 @@
-from manager.objects.game_type import GameType
-from manager.objects.telnet_command import TelnetCommand
-from manager.objects.rcon_command import RconCommand
-from manager.objects.console_command import ConsoleCommand
+from src.games.game_type import GameType
+from src.commands.telnet_command import TelnetCommand
+from src.commands.console_command import ConsoleCommand
 
 
 class Game:

@@ -1,4 +1,4 @@
-from manager.objects.command import Command
+from src.commands.command import Command
 import subprocess
 import os
 

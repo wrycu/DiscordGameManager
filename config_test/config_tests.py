@@ -1,6 +1,6 @@
 from jsonschema import validate, ValidationError
 from json import load
-from config_schema import configSchema
+from src.config_schema import configSchema
 import unittest
 
 class TestUM(unittest.TestCase):

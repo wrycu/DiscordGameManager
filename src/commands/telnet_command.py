@@ -1,5 +1,6 @@
-from manager.objects.command import Command
 import re
+
+from src.commands.command import Command
 
 
 class TelnetCommand(Command):

@@ -29,7 +29,7 @@ class DiscordBot:
                 users cannot do silly things
         :param games:
             A list of games. Basically a straight read from the config file at the moment, though this is expected
-                to evolve into a list of "game" objects which can have commands executed on them
+                to evolve into a list of "game" game which can have commands executed on them
         """
         self.logger = logger
         self.channels = channels

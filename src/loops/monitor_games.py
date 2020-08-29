@@ -9,7 +9,7 @@ class MonitorGames:
         :param logger:
             A logger object for logging (duh).  It should already be configured to log wherever you want
         :param games:
-            A list of game objects which we are supposed to check on the status of
+            A list of game game which we are supposed to check on the status of
         :return:
             An event loop which can be used to run other functions on the same loop
         """

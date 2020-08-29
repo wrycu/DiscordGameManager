@@ -1,15 +1,18 @@
-from jsonschema import validate
-from json import load
 import logging
+import os
+from json import load
+
 import discord
-from config_schema import config_schema
-from manager.monitor_discord import DiscordBot
-from manager.monitor_games import MonitorGames
-from manager.objects.game import Game
+from jsonschema import validate
+
+from src.config_schema import config_schema
+from src.games.game import Game
+from src.loops.monitor_discord import DiscordBot
+from src.loops.monitor_games import MonitorGames
 
 
 class Config:
-    def __init__(self, config_file="config.json"):
+    def __init__(self, config_file=os.path.join(os.path.pardir, 'conf', 'config.json')):
         self._configure_logger()
         with open(config_file) as data_file:
             data = load(data_file)
@@ -38,7 +41,7 @@ class Config:
         Creates and configures a logger to log to "game_manager.log"
         :return:
         """
-        self.logger = logging.getLogger("DiscordGameManager")
+        self.logger = logging.getLogger('DiscordGameManager')
         self.logger.setLevel(logging.DEBUG)
         handler = logging.FileHandler('game_manager.log')
         handler.setLevel(logging.DEBUG)
