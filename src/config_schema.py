@@ -32,28 +32,81 @@ config_schema = {
                 "required": ["name", "type", "app_id", "install_dir", "commands"],
                 "properties": {
                     "name": {"type": "string"},
-                    "type": {"type": "string"},
-                    "app_id": {"type": "string"},
-                    "install_dir": {"type": "string"},
-                    "commands": {
-                        "type": "object",
-                        "required": ["start", "stop", "connect", "delay"],
-                        "properties": {
-                            "start": {"type": "string"},
-                            "stop": {"type": "string"},
-                            "update": {"type": "string"},
-                            "connect": {"type": "string"},
-                            "players": {"type": "string"},
-                            "version": {"type": "string"},
-                            "delay": {"type": "string"},
-                        }
-                    },
                     "admins": {
                         "type": "array",
                         "items": {"type": "integer"},
                         "uniqueItems": True
                     },
-                }
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "install_dir": {
+                                "type": "string",
+                                "required": [{"pattern": ".*/$"}]
+                            },
+                            "ip_addr": {"type": "string"},
+                            "port": {"type": "integer"},
+                            "password": {"type": "string"},
+                            "app_id": {"type": "integer"},
+                            "proc_name": {"type": "string"},
+                        },
+                    },
+                    "commands": {
+                        "type": "object",
+                        "required": ["start", "stop", "connect", "delay"],
+                        "properties": {
+                            "start": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {"type": "string"},
+                                    "type": {"type": "string"},
+                                },
+                            },
+                            "stop": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {"type": "string"},
+                                    "type": {"type": "string"},
+                                },
+                            },
+                            "update": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {"type": "string"},
+                                    "type": {"type": "string"},
+                                },
+                            },
+                            "connect": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {"type": "string"},
+                                    "type": {"type": "string"},
+                                },
+                            },
+                            "players": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {"type": "string"},
+                                    "type": {"type": "string"},
+                                },
+                            },
+                            "version": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {"type": "string"},
+                                    "type": {"type": "string"},
+                                },
+                            },
+                            "delay": {
+                                "type": "object",
+                                "properties": {
+                                    "text": {"type": "string"},
+                                    "type": {"type": "string"},
+                                },
+                            },
+                        }
+                    },
+                },
             },
             "uniqueItems": True
         },

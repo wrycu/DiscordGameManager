@@ -4,9 +4,27 @@ import os
 
 
 class ConsoleCommand(Command):
-    def __init__(self, command):
+    def __init__(self, game_dir, command):
+        self.game_dir = game_dir
         self.command = command
 
     def execute(self):
-        proc = subprocess.Popen(self.command, preexec_fn=os.setsid)
-        return proc.pid
+        try:
+            proc = subprocess.Popen(self.game_dir + self.command, preexec_fn=os.setsid)
+            return {
+                'result': {
+                    'pid': proc.pid,
+                },
+                'error': {
+                    'errored': False,
+                },
+            }
+        except Exception as e:
+            return {
+                'result': {},
+                'error': {
+                    'message': e,
+                    'type': type(e),
+                    'errored': True,
+                },
+            }
