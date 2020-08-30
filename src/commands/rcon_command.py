@@ -1,5 +1,4 @@
-from manager.game.command import Command
-import re
+from src.commands.command import Command
 
 
 class RconCommand(Command):
