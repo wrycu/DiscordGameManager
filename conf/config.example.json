@@ -9,19 +9,45 @@
     "games": [
         {
             "name": "",
-            "type": "",
-            "app_id": "",
-            "install_dir": "",
-            "commands": {
-                "start": "",
-                "stop": "",
-                "update": "",
-                "connect": "",
-                "players": "",
-                "version": "",
-                "delay": ""
+            "admins": [],
+            "properties": {
+                "install_dir": "/",
+                "ip_addr": "127.0.0.1",
+                "port": 5190,
+                "password": "",
+                "app_id": "",
+                "proc_name": ""
             },
-            "admins": []
+            "commands": {
+                "start": {
+                    "text": "",
+                    "type": ""
+                },
+                "stop": {
+                    "text": "",
+                    "type": ""
+                },
+                "update": {
+                    "text": "",
+                    "type": ""
+                },
+                "connect": {
+                    "text": "",
+                    "type": ""
+                },
+                "players": {
+                    "text": "",
+                    "type": ""
+                },
+                "version": {
+                    "text": "",
+                    "type": ""
+                },
+                "delay": {
+                    "text": "",
+                    "type": ""
+                }
+            }
         }
     ]
 }
