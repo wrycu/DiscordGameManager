@@ -28,7 +28,7 @@ class Game:
         pass
 
     def get_players_command(self):
-        pass
+        return self.__get_command('players')
 
     def get_version_command(self):
         # skip for first cut
