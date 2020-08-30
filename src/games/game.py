@@ -1,4 +1,3 @@
-from src.games.game_type import GameType
 from src.commands.telnet_command import TelnetCommand
 from src.commands.console_command import ConsoleCommand
 
@@ -30,16 +29,7 @@ class Game:
         pass
 
     def get_players_command(self):
-        try:
-            game_type = GameType[self.info["type"]]
-        except KeyError:
-            raise Exception("GameType was not valid")
-
-        command = {
-            GameType.telnet: self.__make_telnet_command("players"),
-        }[game_type]
-
-        return command
+        pass
 
     def get_version_command(self):
         # skip for first cut
