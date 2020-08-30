@@ -29,7 +29,7 @@ config_schema = {
             "type": "array",
             "items": {
                 "type": "object",
-                "required": ["name", "type", "app_id", "install_dir", "commands"],
+                "required": ["name", "properties", "commands"],
                 "properties": {
                     "name": {"type": "string"},
                     "admins": {
@@ -42,7 +42,7 @@ config_schema = {
                         "properties": {
                             "install_dir": {
                                 "type": "string",
-                                "required": [{"pattern": ".*/$"}]
+                                "pattern": ".*/$",
                             },
                             "ip_addr": {"type": "string"},
                             "port": {"type": "integer"},
