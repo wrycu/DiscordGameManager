@@ -1,5 +1,5 @@
-from src.commands.console_command import ConsoleCommand
-from src.commands.telnet_command import TelnetCommand
+from src.commands.console import ConsoleCommand
+from src.commands.telnet import TelnetCommand
 
 
 class CommandFactory:
