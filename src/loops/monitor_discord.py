@@ -128,6 +128,7 @@ class DiscordBot:
                     await channel.send(game + ' not supported!')
             elif command == '!status':
                 if game in self.games:
+                    # TODO: Fix this ugly hack. It doesn't even check if the command errored!
                     num_players = self.games[game].get_players_command().execute()['result']['text']
                     await asyncio.sleep(5)
                     await channel.send(game + ' has ' + num_players + ' players!')
