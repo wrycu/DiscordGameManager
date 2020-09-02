@@ -121,7 +121,7 @@ class DiscordBot:
                 if user not in self.admins['global'] and user not in self.admins[game]:
                     await channel.send('You do not have permission to stop this game.')
                 elif game in self.games:
-                    # TODO: Actually stop the game
+                    self.games[game].get_stop_command().execute()
                     await asyncio.sleep(5)
                     await channel.send('Server for ' + game + ' stopped!')
                 else:
