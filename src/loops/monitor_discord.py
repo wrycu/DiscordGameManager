@@ -81,13 +81,13 @@ class DiscordBot:
             if has_role and str(message.author) != full_local_user and str(message.channel) in self.channels:
                 for command in commands:
                     if str(message.content).startswith(command):
-                        await client.send_typing(message.channel)
-                        await handle_command(
-                            command,
-                            int(message.author.id),
-                            str(message.content).replace(command, ''),
-                            message.channel
-                        )
+                        async with message.channel.typing():
+                            await handle_command(
+                                command,
+                                int(message.author.id),
+                                str(message.content).replace(command, ''),
+                                message.channel
+                            )
 
         async def handle_command(command, user, game, channel):
             """
@@ -107,31 +107,31 @@ class DiscordBot:
                 game = game[1:]
 
             if not game and command != '!help':
-                await client.send_message(channel, 'You must include a game.')
+                await channel.send('You must include a game.')
             elif command == '!help':
-                await client.send_message(channel, 'Available commands: !start, !stop, !status.')
+                await channel.send('Available commands: !start, !stop, !status.')
             elif command == '!start':
                 if game in self.games:
                     self.games[game].get_start_command().execute()
                     await asyncio.sleep(5)
-                    await client.send_message(channel, 'Server for ' + game + ' started!')
+                    await channel.send('Server for ' + game + ' started!')
                 else:
-                    await client.send_message(channel, game + ' not supported!')
+                    await channel.send(game + ' not supported!')
             elif command == '!stop':
                 if user not in self.admins['global'] and user not in self.admins[game]:
-                    await client.send_message(channel, 'You do not have permission to stop this game.')
+                    await channel.send('You do not have permission to stop this game.')
                 elif game in self.games:
                     # TODO: Actually stop the game
                     await asyncio.sleep(5)
-                    await client.send_message(channel, 'Server for ' + game + ' stopped!')
+                    await channel.send('Server for ' + game + ' stopped!')
                 else:
-                    await client.send_message(channel, game + ' not supported!')
+                    await channel.send(game + ' not supported!')
             elif command == '!status':
                 if game in self.games:
                     num_players = self.games[game].get_players_command().execute()
                     await asyncio.sleep(5)
-                    await client.send_message(channel, game + ' has ' + num_players + ' players!')
+                    await channel.send(game + ' has ' + num_players + ' players!')
                 else:
-                    await client.send_message(channel, game + ' not supported!')
+                    await channel.send(game + ' not supported!')
             else:
-                await client.send_message(channel, 'Unknown command.')
+                await channel.send('Unknown command.')
