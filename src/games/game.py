@@ -47,7 +47,7 @@ class Game:
         :return:
             An instance of the command
         """
-        if self.commands[command_type]:
+        if command_type in self.commands:
             return self.commands[command_type]
 
         command = CommandFactory.create(self.info['properties'], self.info['commands'][command_type])
