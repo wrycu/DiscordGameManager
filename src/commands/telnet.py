@@ -36,7 +36,18 @@ class TelnetCommand(Command):
     def execute(self):
         self.prime_socket()
 
-        self.soc.connect((self.ip_addr, self.port))
+        try:
+            self.soc.connect((self.ip_addr, self.port))
+        except ConnectionRefusedError as e:
+            return {
+                'result': {
+                    'matched': False,
+                },
+                'error': {
+                    'errored': True,
+                    'message': e,
+                },
+            }
 
         # Wait for connected message
         self.read_socket()
