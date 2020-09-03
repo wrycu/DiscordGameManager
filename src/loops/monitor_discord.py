@@ -142,9 +142,17 @@ class DiscordBot:
             elif command == '!status':
                 if game in self.games:
                     # TODO: Fix this ugly hack. It doesn't even check if the command errored!
-                    num_players = self.games[game].get_players_command().execute()['result']['text']
+                    result = self.games[game].get_players_command().execute()
+                    if result['error']['errored']:
+                        message = 'Error checking status for ' + game + ': ' + result['error']['message']
+                    elif result['result']['matched']:
+                        message = game + ' has ' + result['result']['match'] + ' players!'
+                    else:
+                        # TODO: We should be able to determine if we had a regex so we know if it just didn't match
+                        # or if one wasn't provided. Should we default it to .*
+                        message = game + ' has ' + result['result']['text'] + ' players!'
                     await asyncio.sleep(5)
-                    await channel.send(game + ' has ' + num_players + ' players!')
+                    await channel.send(message)
                 else:
                     await channel.send(game + ' not supported!')
             else:
