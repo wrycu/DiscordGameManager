@@ -143,6 +143,7 @@ class DiscordBot:
                 if game in self.games:
                     # TODO: Fix this ugly hack. It doesn't even check if the command errored!
                     result = self.games[game].get_players_command().execute()
+                    self.logger.debug(json.dumps(result))
                     if result['error']['errored']:
                         message = 'Error checking status for ' + game + ': ' + result['error']['message']
                     elif result['result']['matched']:
