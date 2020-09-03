@@ -23,8 +23,8 @@ class ConsoleCommand(Command):
             return {
                 'result': {},
                 'error': {
-                    'message': e,
-                    'type': type(e),
+                    'message': str(e),
+                    'type': str(type(e)),
                     'errored': True,
                 },
             }

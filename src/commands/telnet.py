@@ -45,7 +45,7 @@ class TelnetCommand(Command):
                 },
                 'error': {
                     'errored': True,
-                    'message': e,
+                    'message': str(e),
                 },
             }
 
