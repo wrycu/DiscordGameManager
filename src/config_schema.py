@@ -60,6 +60,7 @@ config_schema = {
                                 "properties": {
                                     "text": {"type": "string"},
                                     "type": {"type": "string"},
+                                    "regex": {"type": "string"},
                                 },
                             },
                             "stop": {
@@ -67,6 +68,7 @@ config_schema = {
                                 "properties": {
                                     "text": {"type": "string"},
                                     "type": {"type": "string"},
+                                    "regex": {"type": "string"},
                                 },
                             },
                             "update": {
@@ -74,6 +76,7 @@ config_schema = {
                                 "properties": {
                                     "text": {"type": "string"},
                                     "type": {"type": "string"},
+                                    "regex": {"type": "string"},
                                 },
                             },
                             "connect": {
@@ -81,6 +84,7 @@ config_schema = {
                                 "properties": {
                                     "text": {"type": "string"},
                                     "type": {"type": "string"},
+                                    "regex": {"type": "string"},
                                 },
                             },
                             "players": {
@@ -88,6 +92,7 @@ config_schema = {
                                 "properties": {
                                     "text": {"type": "string"},
                                     "type": {"type": "string"},
+                                    "regex": {"type": "string"},
                                 },
                             },
                             "version": {
@@ -95,6 +100,7 @@ config_schema = {
                                 "properties": {
                                     "text": {"type": "string"},
                                     "type": {"type": "string"},
+                                    "regex": {"type": "string"},
                                 },
                             },
                             "delay": {
@@ -102,6 +108,7 @@ config_schema = {
                                 "properties": {
                                     "text": {"type": "string"},
                                     "type": {"type": "string"},
+                                    "regex": {"type": "string"},
                                 },
                             },
                         }

@@ -17,7 +17,7 @@ class CommandFactory:
         if command['type'] == 'console':
             return ConsoleCommand(properties['install_dir'], command['text'])
         elif command['type'] == 'telnet':
-            return TelnetCommand(properties['ip_addr'], properties['port'], command['text'])
+            return TelnetCommand(properties['ip_addr'], properties['port'], command['text'], command['regex'])
         elif command['type'] == 'rcon':
             return None
         else:
