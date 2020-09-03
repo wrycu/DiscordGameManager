@@ -1,4 +1,6 @@
 import asyncio
+import json
+
 import discord
 
 
@@ -122,7 +124,8 @@ class DiscordBot:
                 await channel.send('Available commands: !start, !stop, !status.')
             elif command == '!start':
                 if game in self.games:
-                    self.games[game].get_start_command().execute()
+                    status = self.games[game].get_start_command().execute()
+                    self.logger.debug(json.dumps(status))
                     await asyncio.sleep(5)
                     await channel.send('Server for ' + game + ' started!')
                 else:
