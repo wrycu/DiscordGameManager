@@ -1,4 +1,5 @@
 import asyncio
+import discord
 
 
 class DiscordBot:
@@ -68,6 +69,11 @@ class DiscordBot:
                 '!stop',
                 '!status',
             ]
+
+            if type(message.channel) in [discord.DMChannel, discord.GroupChannel]:
+                # We only want to process messages that are in a channel in a server
+                self.logger.info('Received direct message from: ' + message.author + '. Ignoring.')
+                return
 
             full_local_user = str(client.user.name) + '#' + str(client.user.discriminator)
 
