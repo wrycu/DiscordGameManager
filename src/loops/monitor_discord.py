@@ -70,11 +70,11 @@ class DiscordBot:
                 '!status',
             ]
 
-            self.logger.debug('Received message from: ' + message.author)
+            self.logger.debug('Received message from: ' + str(message.author))
 
             if type(message.channel) in [discord.DMChannel, discord.GroupChannel]:
                 # We only want to process messages that are in a channel in a server
-                self.logger.info('Message from: ' + message.author + ' was not in a server-channel. Ignoring.')
+                self.logger.info('Message from: ' + str(message.author) + ' was not in a server-channel. Ignoring.')
                 return
 
             full_local_user = str(client.user.name) + '#' + str(client.user.discriminator)
@@ -92,7 +92,7 @@ class DiscordBot:
                         async with message.channel.typing():
                             await handle_command(
                                 command,
-                                int(message.author.id),
+                                message.author.id,
                                 str(message.content).replace(command, ''),
                                 message.channel
                             )
@@ -114,7 +114,7 @@ class DiscordBot:
             if game and game[0] == ' ':
                 game = game[1:]
 
-            self.logger.debug('Received command: ' + command + ' ' + game + ' from ' + user)
+            self.logger.debug('Received command: ' + command + ' ' + game + ' from ' + str(user))
 
             if not game and command != '!help':
                 await channel.send('You must include a game.')
