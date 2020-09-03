@@ -70,9 +70,11 @@ class DiscordBot:
                 '!status',
             ]
 
+            self.logger.debug('Received message from: ' + message.author)
+
             if type(message.channel) in [discord.DMChannel, discord.GroupChannel]:
                 # We only want to process messages that are in a channel in a server
-                self.logger.info('Received direct message from: ' + message.author + '. Ignoring.')
+                self.logger.info('Message from: ' + message.author + ' was not in a server-channel. Ignoring.')
                 return
 
             full_local_user = str(client.user.name) + '#' + str(client.user.discriminator)
@@ -111,6 +113,8 @@ class DiscordBot:
             # Remove leading space if it exists
             if game and game[0] == ' ':
                 game = game[1:]
+
+            self.logger.debug('Received command: ' + command + ' ' + game + ' from ' + user)
 
             if not game and command != '!help':
                 await channel.send('You must include a game.')
